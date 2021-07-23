@@ -38,3 +38,10 @@ stages:
       inputs:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Free Trial (85ba14b2-c9dc-44f9-8245-be0649ba29df)'
+        appType: 'webApp'
+        WebAppName: 'SampleService'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
